@@ -51,13 +51,16 @@ public class DBHandler extends SQLiteOpenHelper {
 
         db.close();
     }
-
-    public RecipeGet findRecipe(String RecipeName) {
+    public void setRating(RecipeGet Recipe){
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.execSQL("UPDATE "+TABLE_RECIPE +" SET " + COLUMN_RATINGS+ " = '"+Recipe.getRatings()+"' WHERE "+COLUMN_ID+ " = "+Recipe.getID());
+    }
+    public RecipeGet findRecipe(int RecipeID) {
         String[] projection = {COLUMN_ID,
                 COLUMN_RECIPENAME, COLUMN_RATINGS };
 
         String query = "Select * FROM " + TABLE_RECIPE + " WHERE " +
-                COLUMN_RECIPENAME + " = \"" + RecipeName + "\"";
+                COLUMN_ID + " = \"" + RecipeID + "\"";
 
         SQLiteDatabase db = this.getWritableDatabase();
 

@@ -20,12 +20,25 @@
 
     <TextView
         android:id="@+id/Instructions"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="46dp"
-        android:layout_marginTop="149dp"
+        android:layout_width="314dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="56dp"
+        android:layout_marginTop="124dp"
+        android:layout_marginBottom="32dp"
         android:text=" "
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        android:textSize="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/ratingBar"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <RatingBar
+        android:id="@+id/ratingBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="34dp"
+        android:layout_marginBottom="57dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/Instructions"
+        app:layout_constraintTop_toBottomOf="@+id/Instructions" />
 </androidx.constraintlayout.widget.ConstraintLayout>

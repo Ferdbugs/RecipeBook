@@ -22,7 +22,6 @@ public class AddItem extends AppCompatActivity {
 
         Title = findViewById(R.id.TitleCard);
         Instructions = findViewById(R.id.Instructions);
-        Rating = findViewById(R.id.Rating);
         Save = findViewById(R.id.SaveRecipe);
         db = new DBHandler(this,"RecipeList.db",null,1);
 
@@ -31,14 +30,12 @@ public class AddItem extends AppCompatActivity {
             public void onClick(View v) {
                 String RecipeName = Title.getText().toString();
                 String RecipeInstructions = Instructions.getText().toString();
-                String RecipeRating = Rating.getText().toString();
 
-                RecipeGet Recipe = new RecipeGet(RecipeName,RecipeInstructions,RecipeRating);
+                RecipeGet Recipe = new RecipeGet(RecipeName,RecipeInstructions);
 
                 db.addRecipe(Recipe);
                 Title.setText("");
                 Instructions.setText("");
-                Rating.setText("");
             }
         });
     }

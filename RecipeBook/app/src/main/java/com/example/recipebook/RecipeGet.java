@@ -12,6 +12,13 @@ public class RecipeGet {
             this.Instructions = Instructions;
             this.Rating = Rating;
         }
+        public RecipeGet( String Title, String Instructions){
+            this.Title = Title;
+            this.Instructions = Instructions;
+        }
+        public RecipeGet( String Rating){
+            this.Rating = Rating;
+        }
         public RecipeGet(String Title, String Instructions, String Rating){
             this.Title = Title;
             this.Instructions = Instructions;

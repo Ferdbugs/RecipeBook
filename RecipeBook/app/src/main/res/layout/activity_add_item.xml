@@ -30,25 +30,13 @@
         app:layout_constraintStart_toStartOf="@+id/TitleCard"
         app:layout_constraintTop_toBottomOf="@+id/TitleCard" />
 
-    <EditText
-        android:id="@+id/Rating"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="2dp"
-        android:layout_marginTop="56dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:hint="Rating(1 to 5)"
-        app:layout_constraintStart_toStartOf="@+id/Instructions"
-        app:layout_constraintTop_toBottomOf="@+id/Instructions" />
-
     <Button
         android:id="@+id/SaveRecipe"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="65dp"
+        android:layout_marginTop="192dp"
         android:text="Save Recipe"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Rating" />
+        app:layout_constraintTop_toBottomOf="@+id/Instructions" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -19,6 +20,7 @@ public class RecipeList extends AppCompatActivity {
     ArrayAdapter adapter;
     DBHandler db;
     ListView RecipeList;
+    String FinalList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,8 +36,10 @@ public class RecipeList extends AppCompatActivity {
                 @Override
                 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                     String Title = RecipeList.getItemAtPosition(position).toString();
+                    char getID = Title.charAt(0);
+                    int ID = getID - '0';
                     Intent RecipeIntent = new Intent(RecipeList.this,Recipe.class);
-                    RecipeIntent.putExtra("RecipeTitle",Title);
+                    RecipeIntent.putExtra("RecipeID",ID);
                     startActivity(RecipeIntent);
                 }
             });
@@ -50,7 +54,8 @@ public class RecipeList extends AppCompatActivity {
         }
         else{
             while(cursor.moveToNext()){
-                listItem.add(cursor.getString(1));
+                FinalList = cursor.getString(0) + " " + cursor.getString(1);
+                listItem.add(FinalList);
             }
             adapter = new ArrayAdapter(this,android.R.layout.simple_list_item_1,listItem);
             RecipeList.setAdapter(adapter);
